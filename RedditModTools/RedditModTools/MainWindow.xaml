@@ -1,0 +1,27 @@
+﻿<Window x:Class="RedditModTools.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="320" VerticalAlignment="Top" Width="517">
+            <TabItem Header="Modqueue">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Unmoderated">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock x:Name="textArea" HorizontalAlignment="Left" Margin="42,37,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="237" Width="221"/>
+                    <Button x:Name="popButton" Content="Button" HorizontalAlignment="Left" Margin="369,87,0,0" VerticalAlignment="Top" Width="75" Click="popButton_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Login">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="login_usernameTextbox" HorizontalAlignment="Left" Height="23" Margin="172,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="login_passwordTextbox" HorizontalAlignment="Left" Height="23" Margin="172,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="login_loginButton" Content="Button" HorizontalAlignment="Left" Margin="193,189,0,0" VerticalAlignment="Top" Width="75" Click="login_loginButton_Click"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

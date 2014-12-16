@@ -1,0 +1,34 @@
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\bin\Debug\RedditModTools.exe.config
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\bin\Debug\RedditModTools.exe
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\bin\Debug\RedditModTools.pdb
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\bin\Debug\RedditSharp.dll
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\bin\Debug\Newtonsoft.Json.dll
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\bin\Debug\HtmlAgilityPack.dll
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\bin\Debug\RedditSharp.pdb
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\RedditModTools.csprojResolveAssemblyReference.cache
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\MainWindow.baml
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\MainWindow.g.cs
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\App.g.cs
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\RedditModTools_MarkupCompile.cache
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\RedditModTools.g.resources
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\RedditModTools.Properties.Resources.resources
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\RedditModTools.csproj.GenerateResource.Cache
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\RedditModTools.exe
+c:\users\xps\documents\visual studio 2013\Projects\RedditModTools\RedditModTools\obj\Debug\RedditModTools.pdb
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\bin\Debug\RedditModTools.exe.config
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools.exe
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools.pdb
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\bin\Debug\RedditModTools.exe
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\bin\Debug\RedditModTools.pdb
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\bin\Debug\RedditSharp.dll
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\bin\Debug\Newtonsoft.Json.dll
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\bin\Debug\HtmlAgilityPack.dll
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\bin\Debug\RedditSharp.pdb
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools.csprojResolveAssemblyReference.cache
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\MainWindow.baml
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\MainWindow.g.cs
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\App.g.cs
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools_MarkupCompile.cache
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools.g.resources
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools.Properties.Resources.resources
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools.csproj.GenerateResource.Cache
