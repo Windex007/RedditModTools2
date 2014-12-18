@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="RedditModTools.UserControls.ItemBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:userControls="clr-namespace:RedditModTools.UserControls"
+             mc:Ignorable="d" 
+             Height="100" Width="1200">
+    <Grid>
+        <userControls:BasicItemBarButton x:Name="spamButton" Width="100" HorizontalAlignment="Left" Margin="0,0,0,0" buttonType="SPAM" buttonText="Spam"/>
+        <userControls:BasicItemBarButton x:Name="removeButton" Width="100" HorizontalAlignment="Left" Margin="100,0,0,0" buttonType="REMOVE" buttonText="Remove"/>
+        <userControls:BasicItemBarButton x:Name="contentButton" Width="800" HorizontalAlignment="Right" Margin="0,0,200,0" buttonType="CONTENT" buttonText="Content"/>
+        <userControls:BasicItemBarButton x:Name="approveButton" Width="100" HorizontalAlignment="Right" Margin="0,0,100,0" buttonType="APPROVE" buttonText="Approve"/>
+        <userControls:BasicItemBarButton x:Name="ignoreButton" Width="100" HorizontalAlignment="Right" Margin="0" buttonType="IGNORE" buttonText="Ignore"/>
+    </Grid>
+</UserControl>

@@ -53,6 +53,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Enums\ItemBarState.cs" />
+    <Compile Include="StaticClasses\GradientPresets.cs" />
+    <Compile Include="UserControls\BasicItemBarButton.xaml.cs">
+      <DependentUpon>BasicItemBarButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ForwardBackButton.xaml.cs">
+      <DependentUpon>ForwardBackButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ItemBar.xaml.cs">
+      <DependentUpon>ItemBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LittleToggle.xaml.cs">
+      <DependentUpon>LittleToggle.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -65,6 +79,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\BasicItemBarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ForwardBackButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ItemBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LittleToggle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -98,6 +128,15 @@
       <Project>{a368cb75-75f0-4489-904d-b5cebb0fe624}</Project>
       <Name>RedditSharp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserControls\Images\barTriple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserControls\Images\toggle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserControls\Images\forwardBackButtons.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

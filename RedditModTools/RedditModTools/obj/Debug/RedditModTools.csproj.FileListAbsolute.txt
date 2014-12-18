@@ -32,3 +32,13 @@ C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\D
 C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools.g.resources
 C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools.Properties.Resources.resources
 C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools.csproj.GenerateResource.Cache
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\BasicItemBarButton.baml
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\ItemBar.baml
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\BasicItemBarButton.g.cs
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\ItemBar.g.cs
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\RedditModTools_MarkupCompile.lref
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\LittleToggle.baml
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\LittleToggle.g.cs
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\ForwardBackButton.baml
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\ForwardBackButton.g.cs
