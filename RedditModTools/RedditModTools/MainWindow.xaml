@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:userControls="clr-namespace:RedditModTools.UserControls"
-        Title="MainWindow" Height="350" Width="1218">
+        Title="MainWindow" Height="600" Width="1218">
     <Grid>
         <TabControl>
             <TabItem Header="Modqueue">
@@ -15,9 +15,14 @@
             </TabItem>
             <TabItem Header="Unmoderated">
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock x:Name="textArea" HorizontalAlignment="Left" Margin="42,37,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="237" Width="221"/>
-                    <Button x:Name="popButton" Content="Button" HorizontalAlignment="Left" Margin="369,87,0,0" VerticalAlignment="Top" Width="75" Click="popButton_Click"/>
                     
+                    <Button x:Name="popButton" Content="Button" HorizontalAlignment="Left" Margin="1115,10,0,0" VerticalAlignment="Top" Width="75" Click="popButton_Click"/>
+                    <ScrollViewer HorizontalAlignment="Left" Height="496" Margin="0,38,0,0" VerticalAlignment="Top" Width="1200">
+                        <StackPanel x:Name="unModeratedStack" Width="1200"/>
+
+                    </ScrollViewer>
+                    <userControls:ContentControl x:Name="unmoderatedContentControl" Margin="0,138,0,0" Visibility="Hidden"/>
+
                 </Grid>
             </TabItem>
             <TabItem Header="Login">

@@ -42,3 +42,5 @@ C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\D
 C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\LittleToggle.g.cs
 C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\ForwardBackButton.baml
 C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\ForwardBackButton.g.cs
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\ContentControl.baml
+C:\Users\XPS\Documents\GitHub\RedditModTools\RedditModTools\RedditModTools\obj\Debug\UserControls\ContentControl.g.cs

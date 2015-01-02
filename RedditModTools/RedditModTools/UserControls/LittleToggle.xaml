@@ -1,0 +1,15 @@
+﻿<userControls:UserControlWithClick x:Class="RedditModTools.UserControls.LittleToggle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:userControls="clr-namespace:RedditModTools.UserControls"
+             mc:Ignorable="d" 
+             Height="10" Width="20" MouseDown="UserControl_MouseDown" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush x:Name="imgBrush" ImageSource="Images/toggle.png" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+        </Grid.Background>
+
+    </Grid>
+</userControls:UserControlWithClick>

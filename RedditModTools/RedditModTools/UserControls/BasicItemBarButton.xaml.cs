@@ -19,7 +19,7 @@ namespace RedditModTools.UserControls
     /// <summary>
     /// Interaction logic for BasicItemBarButton.xaml
     /// </summary>
-    public partial class BasicItemBarButton : UserControl
+    public partial class BasicItemBarButton : UserControlWithClick
     {
         public delegate void BasicItemBarButton_PressedEventHandler(BasicItemBarButton sender);
         public event BasicItemBarButton_PressedEventHandler ButtonPressed;
@@ -52,16 +52,28 @@ namespace RedditModTools.UserControls
             }
         }
         public bool childHovered { get; private set; }
-
+        private Dictionary<int, LittleToggle> ruleToggles;
+        public List<int> getActiveRuleInfractions ()
+        {
+            List<int> ruleInfractions = new List<int>();
+            for(int i = 0; i < ruleToggles.Count; i++)
+            {
+                if(ruleToggles[i].isChecked)
+                    ruleInfractions.Add(i + 1);
+            }
+            return ruleInfractions;
+        }
         private void childMouseExit(LittleToggle lt, int ruleId, string hint)
         {
             buttonLabel.Content = buttonText;
             childHovered = false;
+            this.stopBlockingClicks();
         }
         private void childMouseEnter(LittleToggle lt, int ruleId, string hint)
         {
             buttonLabel.Content = hint;
             childHovered = true;
+            this.startBlockingClicks();
         }
         public BasicItemBarButton()
         {
@@ -69,33 +81,52 @@ namespace RedditModTools.UserControls
             initializeRects();
             
             childHovered = false;
-            initializeChildEvents();
-        }
-        private void initializeChildEvents()
-        {
-            toggleRule1.lt_MouseEnter += childMouseEnter;
-            toggleRule2.lt_MouseEnter += childMouseEnter;
-            toggleRule3.lt_MouseEnter += childMouseEnter;
-            toggleRule4.lt_MouseEnter += childMouseEnter;
-            toggleRule5.lt_MouseEnter += childMouseEnter;
-            toggleRule6.lt_MouseEnter += childMouseEnter;
-            toggleRule7.lt_MouseEnter += childMouseEnter;
+            initializeRuleToggleDictionary();
+            initializeChildrenState();
 
-            toggleRule1.lt_MouseExit += childMouseExit;
-            toggleRule2.lt_MouseExit += childMouseExit;
-            toggleRule3.lt_MouseExit += childMouseExit;
-            toggleRule4.lt_MouseExit += childMouseExit;
-            toggleRule5.lt_MouseExit += childMouseExit;
-            toggleRule6.lt_MouseExit += childMouseExit;
-            toggleRule7.lt_MouseExit += childMouseExit;
+            this.Click += BasicItemBarButton_Click;
+        }
+        public void initializeRuleToggleDictionary()
+        {
+            ruleToggles = new Dictionary<int, LittleToggle>();
+            ruleToggles.Add(0, toggleRule1);
+            ruleToggles.Add(1, toggleRule2);
+            ruleToggles.Add(2, toggleRule3);
+            ruleToggles.Add(3, toggleRule4);
+            ruleToggles.Add(4, toggleRule5);
+            ruleToggles.Add(5, toggleRule6);
+            ruleToggles.Add(6, toggleRule7);
+        }
+        public void BasicItemBarButton_Click(UserControlWithClick sender)
+        {
+            if (buttonType == ItemBarButtonType.REMOVE)
+            {
+                clearForwardBackHighlighting();
+                setForwardBackVisibility(System.Windows.Visibility.Visible);
+            }
+            else
+            {
+                if (ButtonPressed != null)
+                    ButtonPressed(this);
+            }
+        }
+        private void initializeChildrenState()
+        {
+            for(int i = 0; i < ruleToggles.Count; i++)
+            {
+                ruleToggles[i].lt_MouseEnter += childMouseEnter;
+                ruleToggles[i].lt_MouseExit += childMouseExit;
+            }
+
+
 
             forwardButton.fbb_MouseEnter += handleForwardBackEnter;
             forwardButton.fbb_MouseExit += handleForwardBackExit;
-            forwardButton.fbb_MouseClick += handleForwardBackDown;
+            forwardButton.fbb_MouseClick += handleForwardBackClick;
 
             backButton.fbb_MouseEnter += handleForwardBackEnter;
             backButton.fbb_MouseExit += handleForwardBackExit;
-            backButton.fbb_MouseClick += handleForwardBackDown;
+            backButton.fbb_MouseClick += handleForwardBackClick;
         }
         private void initializeRects()
         {
@@ -143,30 +174,55 @@ namespace RedditModTools.UserControls
             toggleRule7.Visibility = visibility; 
         }
         private void setForwardBackVisibility(System.Windows.Visibility visibility)
-        {
+        { 
+            
+
             backButton.Visibility = visibility;
             forwardButton.Visibility = visibility;
+        }
+        private void clearForwardBackHighlighting()
+        {
+            backButton.clearHover();
+            forwardButton.clearHover();
         }
         private void handleForwardBackEnter(ForwardBackButton fbb, bool isBack)
         {
             childHovered = true;
+            this.startBlockingClicks();
         }
         private void handleForwardBackExit(ForwardBackButton fbb, bool isBack)
         {
             childHovered = false;
+            this.stopBlockingClicks();
         }
-        private void handleForwardBackDown(ForwardBackButton fbb, bool isBack)
+        private void handleForwardBackClick(ForwardBackButton fbb, bool isBack)
         {
+            //Refactor this
+            
             if(isBack)
             {
+             
+
                 setForwardBackVisibility(System.Windows.Visibility.Collapsed);
+                
                 childHovered = false;
             }
             else
             {
+                
+                setForwardBackVisibility(System.Windows.Visibility.Collapsed);
+                
+                childHovered = false;
+
                 if (ButtonPressed != null)
                     ButtonPressed(this);
+
+           
             }
+            this.stopBlockingClicks();
+
+            
+            
         }
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -179,15 +235,7 @@ namespace RedditModTools.UserControls
             { 
                 bgBrush.Viewbox = pressedRect;
 
-                if(buttonType == ItemBarButtonType.REMOVE)
-                {
-                    setForwardBackVisibility(System.Windows.Visibility.Visible);
-                }
-                else
-                {
-                    if (ButtonPressed != null)
-                        ButtonPressed(this);
-                }
+                
             }
         }
 

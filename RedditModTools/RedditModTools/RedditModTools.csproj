@@ -58,6 +58,9 @@
     <Compile Include="UserControls\BasicItemBarButton.xaml.cs">
       <DependentUpon>BasicItemBarButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ContentControl.xaml.cs">
+      <DependentUpon>ContentControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ForwardBackButton.xaml.cs">
       <DependentUpon>ForwardBackButton.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,7 @@
     <Compile Include="UserControls\LittleToggle.xaml.cs">
       <DependentUpon>LittleToggle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlWithClick.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,6 +84,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\BasicItemBarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ContentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

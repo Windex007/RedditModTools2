@@ -1,5 +1,6 @@
 ﻿using RedditModTools.Enums;
 using RedditModTools.StaticClasses;
+using RedditSharp.Things;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,17 +24,87 @@ namespace RedditModTools.UserControls
     public partial class ItemBar : UserControl
     {
 
+        public delegate void ItemBar_RemoveEventHandler(ItemBar sender,string fullName, List<int> infractions);
+        public event ItemBar_RemoveEventHandler RemovePressed;
+
+        public delegate void ItemBar_ContentEventHandler(ItemBar sender, Uri uri);
+        public event ItemBar_ContentEventHandler ContentPressed;
+
+        public delegate void ItemBar_IgnoreEventHandler(ItemBar sender, string fullName);
+        public event ItemBar_IgnoreEventHandler IgnorePressed;
+
+        public delegate void ItemBar_ApproveEventHandler(ItemBar sender, string fullName);
+        public event ItemBar_ApproveEventHandler ApprovePressed;
+
+        public delegate void ItemBar_SpamEventHandler(ItemBar sender, string fullName);
+        public event ItemBar_SpamEventHandler SpamPressed;
+
+
         public ItemBarState barState { get; private set; }
+        public string redditThingFullName { get; private set; }
+        public Uri redditContentUri { get; private set; }
+        public bool isSelfPost { get; private set; }
+        public string selfPostText { get; private set; }
 
         public ItemBar()
         {
             InitializeComponent();
 
             barState = ItemBarState.FULL;
+
+            contentButton.ButtonPressed += contentButton_ButtonPressed;
+            removeButton.ButtonPressed += removeButton_ButtonPressed;
+            ignoreButton.ButtonPressed += ignoreButton_ButtonPressed;
+            approveButton.ButtonPressed += approveButton_ButtonPressed;
+            spamButton.ButtonPressed += spamButton_ButtonPressed;
   
+        }
+        public void populate(Post post)
+        {
+            contentButton.buttonText = post.Title;
+            redditThingFullName = post.FullName;
+            redditContentUri = post.Url;
+            isSelfPost = post.IsSelfPost;
+            selfPostText = (isSelfPost ? post.SelfText : "");
+            
+        }
+        void spamButton_ButtonPressed(BasicItemBarButton sender)
+        {
+            if (SpamPressed != null)
+                SpamPressed(this, this.redditThingFullName);
+        }
+
+        void approveButton_ButtonPressed(BasicItemBarButton sender)
+        {
+            if (ApprovePressed != null)
+                ApprovePressed(this, this.redditThingFullName);
+        }
+
+        void ignoreButton_ButtonPressed(BasicItemBarButton sender)
+        {
+            if (IgnorePressed != null)
+                IgnorePressed(this, this.redditThingFullName);
+        }
+
+        void contentButton_ButtonPressed(BasicItemBarButton sender)
+        {
+            if (ContentPressed != null)
+                ContentPressed(this, redditContentUri);
+        }
+        
+        void removeButton_ButtonPressed(BasicItemBarButton sender)
+        {
+            printInfractions();
+        }
+        public void printInfractions()
+        {
+            List<int> infractions = removeButton.getActiveRuleInfractions();
+            if (RemovePressed != null)
+                RemovePressed(this, this.redditThingFullName, infractions);
         }
         public void changeToState (ItemBarState newState)
         {
+            
             if(barState != newState)
             {
                 switch (newState)
