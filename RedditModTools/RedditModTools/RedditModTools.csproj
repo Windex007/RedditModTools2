@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,6 +72,9 @@
     <Compile Include="UserControls\LittleToggle.xaml.cs">
       <DependentUpon>LittleToggle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TabButton.xaml.cs">
+      <DependentUpon>TabButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserControlWithClick.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -100,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\LittleToggle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TabButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,6 +154,20 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="UserControls\Images\forwardBackButtons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TrayIcons\tray_both.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="TrayIcons\tray_bottom.ico" />
+    <Resource Include="TrayIcons\tray_none.ico" />
+    <Resource Include="TrayIcons\tray_top.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TabHeaders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserControls\Images\tabButtons.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

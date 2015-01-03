@@ -23,6 +23,37 @@ namespace RedditModTools
     /// </summary>
     public partial class MainWindow : Window
     {
+        System.Windows.Forms.NotifyIcon nIcon = new System.Windows.Forms.NotifyIcon();
+
+        public bool _hasUnmodded;
+        public bool _hasModded;
+
+        public bool hasUnmodded
+        {
+            get
+            {
+                return _hasUnmodded;
+            }
+            set
+            {
+                _hasUnmodded = value;
+                updateTrayIcon();
+            }
+        }
+        public bool hasModded
+        {
+            get
+            {
+                return _hasModded;
+            }
+            set
+            {
+                _hasModded = value;
+                updateTrayIcon();
+            }
+        }
+
+
         Reddit reddit;
         Listing<VotableThing> reports;
         Listing<Post> unmoderatedLinks;
@@ -31,13 +62,24 @@ namespace RedditModTools
         public bool isLoggedIn;
 
         List<ItemBar> unModdedBars;
-
+        Dictionary<IconState, System.Drawing.Icon> iconStates;
         Subreddit sub;
+
+
 
         public MainWindow()
         {
             InitializeComponent();
+            initializeIconStates();
             initialize();
+        }
+        public void initializeIconStates()
+        {
+            iconStates = new Dictionary<IconState, System.Drawing.Icon>();
+            iconStates.Add(IconState.NONE, new System.Drawing.Icon(@"../../TrayIcons/tray_none.ico"));
+            iconStates.Add(IconState.BOTH, new System.Drawing.Icon(@"../../TrayIcons/tray_both.ico"));
+            iconStates.Add(IconState.MOD_ONLY, new System.Drawing.Icon(@"../../TrayIcons/tray_top.ico"));
+            iconStates.Add(IconState.UNMOD_ONLY, new System.Drawing.Icon(@"../../TrayIcons/tray_bottom.ico"));
         }
         public void initialize()
         {
@@ -51,9 +93,39 @@ namespace RedditModTools
             unModdedBars = new List<ItemBar>();
 
             unmoderatedContentControl.Back += unmoderatedContentControl_Back;
-            
+
+            initializeTray();
         }
 
+        void initializeTray()
+        {
+
+            this.nIcon.Icon = iconStates[IconState.NONE];
+            this.nIcon.Visible = true;
+            hasModded = false;
+            hasUnmodded = false;
+            
+        }
+        public void updateTrayIcon()
+        {
+            if (this.nIcon != null)
+            {
+                if (hasModded)
+                {
+                    if (hasUnmodded)
+                        this.nIcon.Icon = iconStates[IconState.BOTH];
+                    else
+                        this.nIcon.Icon = iconStates[IconState.MOD_ONLY];
+                }
+                else
+                {
+                    if (hasUnmodded)
+                        this.nIcon.Icon = iconStates[IconState.UNMOD_ONLY];
+                    else
+                        this.nIcon.Icon = iconStates[IconState.NONE];
+                }
+            }
+        }
         void unmoderatedContentControl_Back(UserControls.ContentControl sender)
         {
             unmoderatedContentControl.Visibility = System.Windows.Visibility.Hidden;
@@ -188,16 +260,65 @@ namespace RedditModTools
         private void full_Click(object sender, RoutedEventArgs e)
         {
             bar.changeToState(Enums.ItemBarState.FULL);
+            hasModded = !hasModded;
         }
 
         private void focused_Click(object sender, RoutedEventArgs e)
         {
             bar.changeToState(Enums.ItemBarState.COLLAPSED_FOCOUSED);
+            hasUnmodded = !hasUnmodded;
         }
 
         private void unfoc_Click(object sender, RoutedEventArgs e)
         {
             bar.changeToState(Enums.ItemBarState.COLLAPSED_UNFOCUSED);
+        }
+
+        public enum IconState
+        {
+            NONE,
+            UNMOD_ONLY,
+            MOD_ONLY,
+            BOTH
+        }
+        public void navigateToTab(TabButtonType type)
+        {
+            switch (type)
+            {
+                case TabButtonType.LOGIN:
+                    loginGrid.Visibility = System.Windows.Visibility.Visible;
+                    unmoderatedGrid.Visibility = System.Windows.Visibility.Collapsed;
+                    moderatedGrid.Visibility = System.Windows.Visibility.Collapsed;
+                    loginTabButton.isActive = true;
+                    unmoderatedTabButton.isActive = false;
+                    moderatedTabButton.isActive = false;
+                    break;
+                case TabButtonType.UNMODERATED:
+                    loginGrid.Visibility = System.Windows.Visibility.Collapsed;
+                    unmoderatedGrid.Visibility = System.Windows.Visibility.Visible;
+                    moderatedGrid.Visibility = System.Windows.Visibility.Collapsed;
+                    loginTabButton.isActive = false;
+                    unmoderatedTabButton.isActive = true;
+                    moderatedTabButton.isActive = false;
+                    break;
+                case TabButtonType.MODERATED:
+                    loginGrid.Visibility = System.Windows.Visibility.Collapsed;
+                    unmoderatedGrid.Visibility = System.Windows.Visibility.Collapsed;
+                    moderatedGrid.Visibility = System.Windows.Visibility.Visible;
+                    loginTabButton.isActive = false;
+                    unmoderatedTabButton.isActive = false;
+                    moderatedTabButton.isActive = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void TabButton_Click(UserControlWithClick sender)
+        {
+            TabButton senderButton = (TabButton)sender;
+
+            navigateToTab(senderButton.buttonType);
+            
         }
     }
 }
